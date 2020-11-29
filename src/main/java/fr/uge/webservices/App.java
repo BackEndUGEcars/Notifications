@@ -9,7 +9,7 @@ public class App {
 			LocateRegistry.createRegistry(7780);
 			INotifications n = new Notifications();
 			Naming.bind("rmi://localhost:7780/Notifications", n);
-            System.out.println("RMI ok");
+            System.out.println("Notifications RMI loaded");
 		} catch (Exception e) {
 			System.out.println(e);
 		}
