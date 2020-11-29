@@ -18,7 +18,7 @@ public class Notifications extends UnicastRemoteObject implements INotifications
 			Map<Long, String> na = new  HashMap<Long, String>();
 			notifications.put(employeeID, na);
 		}
-		notifications.get(employeeID).put(carID, "{\"carID\":" + carID + ", \"imagePath\":" + imagePath + ", \"notification\":\"" + notif + "\"}");
+		notifications.get(employeeID).put(carID, "{\"carID\":" + carID + ", \"imagePath\":\"" + imagePath + "\", \"notification\":\"" + notif + "\"}");
 	}
 	
 	public void removeNotifications(Long employeeId, Long carId) throws RemoteException{
