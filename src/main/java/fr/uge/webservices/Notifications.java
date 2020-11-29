@@ -13,12 +13,12 @@ public class Notifications extends UnicastRemoteObject implements INotifications
 
 	private final Map<Long, Map<Long, String>> notifications = new HashMap<Long,  Map<Long, String>>();
 	
-	public void addNotification(Long employeeID, Long carID, String notif) throws RemoteException{
+	public void addNotification(Long employeeID, Long carID, String imagePath, String notif) throws RemoteException{
 		if(notifications.get(employeeID) == null) {
 			Map<Long, String> na = new  HashMap<Long, String>();
 			notifications.put(employeeID, na);
 		}
-		notifications.get(employeeID).put(carID, "{\"carID\":" + carID + ", \"notification\":\"" + notif + "\"}");
+		notifications.get(employeeID).put(carID, "{\"carID\":" + carID + ", \"imagePath\":" + imagePath + ", \"notification\":\"" + notif + "\"}");
 	}
 	
 	public void removeNotifications(Long employeeId, Long carId) throws RemoteException{
@@ -32,5 +32,4 @@ public class Notifications extends UnicastRemoteObject implements INotifications
 		}
 		return l;
 	}
-
 }
